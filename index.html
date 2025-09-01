@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Trader Biodata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .trading-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .trading-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        .stock-ticker {
+            background-color: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 20px;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .skill-meter {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .meter-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
+        }
+        .chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            position: relative;
+            height: 200px;
+        }
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            stroke: #3b82f6;
+            stroke-width: 2;
+            fill: none;
+        }
+        .chart-area {
+            fill: url(#areaGradient);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header with Market Stats -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">TRADER PROFILE</h1>
+                <p class="text-gray-600">Last updated: <span id="current-date" class="font-medium"></span></p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4 flex items-center gap-6">
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm">IKAN</p>
+                    <p class="text-green-500 font-bold">139 <i class="fas fa-caret-up ml-1"></i></p>
+                </div>
+                 <div class="text-center">
+                    <p class="text-gray-500 text-sm">NRCA</p>
+                    <p class="text-green-500 font-bold">910 <i class="fas fa-caret-up ml-1"></i></p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm">BRMS</p>
+                    <p class="text-red-500 font-bold">476<i class="fas fa-caret-down ml-1"></i></p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm">ELSA</p>
+                    <p class="text-green-500 font-bold">484 <i class="fas fa-caret-up ml-1"></i></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Profile Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Personal Info -->
+            <div class="trading-card rounded-xl p-6 text-white col-span-1">
+                <div class="flex flex-col items-center mb-6">
+                    <div class="w-32 h-32 rounded-full border-4 border-blue-300 mb-4 overflow-hidden">
+                        <img src="riski.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <h2 class="text-2xl font-bold">Miftahul Rizky A.</h2>
+                    <p class="text-blue-200">Junior Trading Analyst</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+                            <i class="fas fa-briefcase text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-blue-200">Current Position</p>
+                            <p class="font-medium">Ds. karangsono,Kec loceret,Kab Nganjuk, Jawa Timur, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-blue-200">Lokasi</p>
+                            <p class="font-medium">Bondowoso</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-blue-200">Email</p>
+                            <p class="font-medium">rizkyamirullah19@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-blue-200">Nomer Whatsapp</p>
+                            <p class="font-medium">0813-5744-1144</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-blue-400">
+                    <h3 class="font-bold mb-3">Specialties</h3>
+                    <div class="flex flex-wrap gap-2">
+                       <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Stock Trading Specialist</span>
+                        <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Technical Analysis</span>
+                        <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Basically trading</span>
+                        <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Risk Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Column - Experience & Performance -->
+            <div class="bg-white rounded-xl shadow-md p-6 col-span-1 lg:col-span-2">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Performa Trading Saya</h2>
+                
+                <!-- Performance Chart -->
+                <div class="chart-container mb-6">
+                    <svg width="100%" height="100%" viewBox="0 0 500 200" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="areaGradient" x1="100%" y1="0%" x2="0%" y2="0.3%">
+                                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path class="chart-line" d="M0,200 L50,180 L100,150 L150,170 L200,120 L250,140 L300,100 L350,130 L400,80 L450,110 L500,60" />
+                        <path class="chart-area" d="M0,200 L50,180 L100,150 L150,170 L200,120 L250,140 L300,100 L350,130 L400,80 L450,110 L500,60 L500,200 Z" />
+                    </svg>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-gray-50 p-3 rounded-lg text-center">
+                        <p class="text-sm text-gray-500">Win Rate</p>
+                        <p class="text-2xl font-bold text-green-500">77.78%</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg text-center">
+                        <p class="text-sm text-gray-500">Avg. Profit</p>
+                        <p class="text-2xl font-bold text-green-500">41.43%</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg text-center">
+                        <p class="text-sm text-gray-500">Max loss</p>
+                        <p class="text-2xl font-bold text-red-500">-4.73%</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg text-center">
+                        <p class="text-sm text-gray-500">Sharpe Ratio</p>
+                        <p class="text-2xl font-bold text-blue-500">40.78</p>
+                    </div>
+                </div>
+
+        <!-- Bottom Section - Skills & Education -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+            <!-- Skills Section -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Matrik Trading Skill</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Technical Analysis</span>
+                            <span class="text-blue-600 font-bold">78%</span>
+                        </div>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 78%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Stocks Trading Specialist</span>
+                            <span class="text-blue-600 font-bold">60%</span>
+                        </div>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Risk Management</span>
+                            <span class="text-blue-600 font-bold">25%</span>
+                        </div>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 25%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Basically Trading</span>
+                            <span class="text-blue-600 font-bold">89%</span>
+                        </div>
+                        <div class="skill-meter">
+                            <div class="meter-fill" style="width: 89%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="mt-6 pt-6 border-t">
+                    <h3 class="font-bold mb-3">Current Holdings (Top 6)</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">BRMS</span>
+                            <span class="text-green-500">+2.88%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">ELSA</span>
+                            <span class="text-red-500">-0.16%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">IKAN</span>
+                            <span class="text-red-500">-9.33%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">IOTF</span>
+                            <span class="text-red-500">-10.85%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">PAMG</span>
+                            <span class="text-red-500">-10.87%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">NRCA</span>
+                            <span class="text-red-500">-0.69%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stock Ticker Footer -->
+        <div class="stock-ticker mt-8 rounded-lg overflow-hidden">
+            <div class="ticker-item py-3 text-white">
+                <span class="font-bold">BRMS</span> Rp462.69 <span class="text-green-400">+6 (1.28%)</span> • 
+                <span class="font-bold">ELSA</span> Rp484.73 <span class="text-green-400">+3.42 (1.04%)</span> • 
+                <span class="font-bold">IKAN</span> Rp139.45 <span class="text-red-400">-0.87 (0.63%)</span> • 
+                <span class="font-bold">NRCA</span> Rp915.76 <span class="text-green-400">+1.23 (0.97%)</span> • 
+                <span class="font-bold">PAMG</span> Rp74.6 <span class="text-red-400">-5.32 (2.00%)</span> • 
+                <span class="font-bold">ATLA</span> Rp65,32 <span class="text-green-400">+12.45 (2.83%)</span> • 
+                <span class="font-bold">IHSG</span> Rp7,736.07 <span class="text-green-400">+4.21 (1.43%)</span> • 
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+
+        // Simple animation for the chart
+        const chartLine = document.querySelector('.chart-line');
+        const chartArea = document.querySelector('.chart-area');
+        const pathData = "M0,200 L50,180 L100,150 L150,170 L200,120 L250,140 L300,100 L350,130 L400,80 L450,110 L500,60";
+        
+        // Reset path length for animation
+        chartLine.style.strokeDasharray = chartLine.getTotalLength();
+        chartLine.style.strokeDashoffset = chartLine.getTotalLength();
+        
+        // Animate the chart on load
+        setTimeout(() => {
+            chartLine.style.transition = 'stroke-dashoffset 2s ease-in-out';
+            chartLine.style.strokeDashoffset = '0';
+            
+            // Animate area fill after line draws
+            setTimeout(() => {
+                chartArea.setAttribute('d', pathData + " L500,200 Z");
+            }, 2000);
+        }, 500);
+    </script>
+</body>
+</html>
